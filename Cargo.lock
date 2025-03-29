@@ -161,8 +161,9 @@ dependencies = [
 
 [[package]]
 name = "decimals"
-version = "0.1.0"
-source = "git+https://github.com/dskyberg/decimals.git#21c797af71608a5994ea0f4a8624a1745ee92d78"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4230ae22db40bfeb82556665f54e0cca9b7b99b2f5c81039f1225c803515905d"
 
 [[package]]
 name = "dyn-clone"

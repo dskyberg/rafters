@@ -1,5 +1,6 @@
 #![doc = include_str!("../README.md")]
 use anyhow::Result;
+use decimals::Decimals;
 
 mod cli;
 
@@ -8,7 +9,6 @@ mod interactive;
 mod utils;
 
 use crate::utils::to_inches;
-use decimals::Decimals;
 use rafter_lib::{Rafter, RafterInput, RightAngleLike};
 
 use cli::Cli;
@@ -16,7 +16,8 @@ use cli::Cli;
 fn process_cli(cli: &Cli) -> Result<()> {
     let input: RafterInput = cli.into();
     let rafter = Rafter::from_input(&input);
-    println!("The angle of the pitch: {}", rafter.angle().decimals(2));
+    let angle = rafter.angle();
+    println!("The angle of the pitch: {}", angle.round_to(2));
     println!(
         "Rafter length (from the ridge beam to the bird's mouth heel): {}",
         to_inches(rafter.total_length)

@@ -37,12 +37,12 @@ mod tests {
     fn test_toa() {
         let (rise, length) = toa(PITCH, None, Some(ADJACENT));
         assert_eq!(
-            (rise.decimals(2), length.decimals(2)),
+            (rise.round_to(2), length.round_to(2)),
             (OPPOSITE, HYPOTENUSE)
         );
         let (run, length) = toa(PITCH, Some(OPPOSITE), None);
         assert_eq!(
-            (run.decimals(2), length.decimals(2)),
+            (run.round_to(2), length.round_to(2)),
             (ADJACENT, HYPOTENUSE)
         );
     }
