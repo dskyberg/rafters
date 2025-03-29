@@ -333,6 +333,7 @@ dependencies = [
 [[package]]
 name = "rafter_lib"
 version = "0.1.0"
+source = "git+https://github.com/dskyberg/rafter_lib.git#fce869681e967c45d269143ac4d06fafd0455d06"
 dependencies = [
  "pythagoras",
  "serde",

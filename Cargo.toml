@@ -10,5 +10,5 @@ clap_derive = "4.5.28"
 decimals = {git = "https://github.com/dskyberg/decimals.git"}
 inquire = "0.7.5"
 serde = { version = "1", features = ["derive"] }
-rafter_lib = { path = "../rafter_lib" }
+rafter_lib = { git = "https://github.com/dskyberg/rafter_lib.git" }
 thiserror = "2.0.12"
