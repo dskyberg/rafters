@@ -1,3 +1,4 @@
+use anyhow::Result;
 use clap::Parser;
 
 #[derive(Debug, Parser)]
@@ -17,8 +18,12 @@ pub struct Cli {
     pub wall_width: f32,
 
     /// Thickness of the ridge board or beam in inches. Such as 1.5 for a typical 2x8 ridge board.
-    #[arg(short, long, value_name = "1.5, etc")]
+    #[arg(short = 't', long, value_name = "1.5, etc")]
     pub beam_thickness: f32,
+
+    /// Width of the ridge board or beam in inches. Such as 11.25 for a typical 6x12 ridge board.
+    #[arg(short, long, value_name = "1.5, etc")]
+    pub beam_width: f32,
 
     /// Distance from the tip of the rafter to the outside edge of the wall in inches.
     #[arg(short, long, value_name = "18.0, 24.0, etc")]
@@ -27,4 +32,25 @@ pub struct Cli {
     /// Width of the rafter in inches, such as 9.25 for a 2x10 rafter
     #[arg(short, long, value_name = "9.25, etc")]
     pub rafter_width: f32,
+}
+
+use rafter_lib::RafterInput;
+
+impl From<&Cli> for RafterInput {
+    fn from(input: &Cli) -> Self {
+        Self {
+            pitch: input.pitch,
+            span: input.span,
+            wall_width: input.wall_width,
+            beam_thickness: input.beam_thickness,
+            beam_width: input.beam_width,
+            overhang: input.overhang,
+            rafter_width: input.rafter_width,
+        }
+    }
+}
+
+pub fn run() -> Result<Cli> {
+    let cli = Cli::parse();
+    Ok(cli)
 }

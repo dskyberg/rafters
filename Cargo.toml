@@ -4,5 +4,11 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+anyhow = "1.0.97"
 clap = { version = "4.5.28", features = ["derive"] }
 clap_derive = "4.5.28"
+decimals = {git = "https://github.com/dskyberg/decimals.git"}
+inquire = "0.7.5"
+serde = { version = "1", features = ["derive"] }
+rafter_lib = { path = "../rafter_lib" }
+thiserror = "2.0.12"

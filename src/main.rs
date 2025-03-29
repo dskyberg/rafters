@@ -1,36 +1,42 @@
-//! IRC states that the seat cut on a bird's mouth must be min 1.5 inches.  The seat should never be
-//! wider than the plate. And the heal cannot span more than 1/4 the width of the rafter.
-use clap::Parser;
+#![doc = include_str!("../README.md")]
+use anyhow::Result;
 
-mod birds_mouth;
 mod cli;
-mod digits;
-mod rafter;
-mod right_angle;
-mod tail;
+
+mod error;
+mod interactive;
 mod utils;
 
-use cli::Cli;
-use digits::Digits;
-use rafter::Rafter;
-use right_angle::RightAngle;
-use utils::to_inches;
+use crate::utils::to_inches;
+use decimals::Decimals;
+use rafter_lib::{Rafter, RafterInput, RightAngleLike};
 
-fn main() {
-    let cli = Cli::parse();
-    let rafter = Rafter::from_cli(&cli);
-    println!("The angle of the pitch: {}", rafter.angle().digits(2));
+use cli::Cli;
+
+fn process_cli(cli: &Cli) -> Result<()> {
+    let input: RafterInput = cli.into();
+    let rafter = Rafter::from_input(&input);
+    println!("The angle of the pitch: {}", rafter.angle().decimals(2));
     println!(
         "Rafter length (from the ridge beam to the bird's mouth heel): {}",
-        to_inches(rafter.total_length())
+        to_inches(rafter.total_length)
     );
-    println!("Ridge Height: {}", to_inches(rafter.ridge_beam_height()));
+    println!("Ridge Height: {}", to_inches(rafter.ridge_beam_height));
     println!(
         "Tail length (from the tip of the rafter to the wall): {}",
-        to_inches(rafter.tail_length())
+        to_inches(rafter.tail.length())
     );
     println!(
         "Bird's mouth length: {}",
-        to_inches(rafter.birds_mouth_length())
+        to_inches(rafter.birds_mouth.length())
     );
+    Ok(())
+}
+
+fn main() -> Result<()> {
+    let cli = match std::env::args().len() < 2 {
+        true => interactive::run()?,
+        false => cli::run()?,
+    };
+    process_cli(&cli)
 }

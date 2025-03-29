@@ -12,6 +12,23 @@ The total rafter length is calculated by the length of the main triangle (the hy
 The total ridge beam height is calculated as the height of the main triangle and the angled width of the rafter,
 minus the bird's mouth heal (rise).
 
+## Run
+
+```sh
+➜ rafters --help
+Usage: rafters --pitch <4, 7, etc> --span <372.25 etc> --wall-width <6.125, etc> --beam-thickness <1.5, etc> --beam-width <1.5, etc> --overhang <18.0, 24.0, etc> --rafter-width <9.25, etc>
+
+Options:
+  -p, --pitch <4, 7, etc>           The rise in the rise over run calculation. Such as the 4 in 4:12
+  -s, --span <372.25 etc>           Distance in inches between the outside edges of the opposing walls that will hold the rafters. Remember to include the thickness of sheathing
+  -w, --wall-width <6.125, etc>     Width of the wall (top plate width + sheathing thickness) in inches, such as 5.5 for a 2x6 plate. This is needed to properly calculate the bird's mouth
+  -t, --beam-thickness <1.5, etc>   Thickness of the ridge board or beam in inches. Such as 1.5 for a typical 2x8 ridge board
+  -b, --beam-width <1.5, etc>       Width of the ridge board or beam in inches. Such as 11.25 for a typical 6x12 ridge board
+  -o, --overhang <18.0, 24.0, etc>  Distance from the tip of the rafter to the outside edge of the wall in inches
+  -r, --rafter-width <9.25, etc>    Width of the rafter in inches, such as 9.25 for a 2x10 rafter
+  -h, --help                        Print help
+```
+
 ## Measurements
 
 This app uses inches with decimals.  So, just divide the the fraction to get the decimal.
