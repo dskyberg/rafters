@@ -160,12 +160,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "decimals"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4230ae22db40bfeb82556665f54e0cca9b7b99b2f5c81039f1225c803515905d"
-
-[[package]]
 name = "dyn-clone"
 version = "1.0.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -347,9 +341,9 @@ dependencies = [
  "anyhow",
  "clap",
  "clap_derive",
- "decimals",
  "inquire",
  "rafter_lib",
+ "round_to",
  "serde",
  "thiserror",
 ]
@@ -362,6 +356,11 @@ checksum = "0b8c0c260b63a8219631167be35e6a988e9554dbd323f8bd08439c8ed1302bd1"
 dependencies = [
  "bitflags 2.9.0",
 ]
+
+[[package]]
+name = "round_to"
+version = "0.1.0"
+source = "git+https://github.com/dskyberg/round_to#559750b95e7a64f510d2a7b3499ee9a0720d1825"
 
 [[package]]
 name = "ryu"

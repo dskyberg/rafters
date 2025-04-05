@@ -25,8 +25,8 @@ pub fn to_inches(length: f32) -> String {
 
 #[cfg(test)]
 mod tests {
-    use decimals::Decimals;
     use rafter_lib::toa;
+    use round_to::RoundTo;
 
     const OPPOSITE: f32 = 3.0;
     const HYPOTENUSE: f32 = 5.0;

@@ -1,6 +1,6 @@
 #![doc = include_str!("../README.md")]
 use anyhow::Result;
-use decimals::Decimals;
+use round_to::RoundTo;
 
 mod cli;
 

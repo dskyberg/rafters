@@ -60,6 +60,6 @@ ridge beam, your mileage may vary.
 
 The overhang is the distance from the edge of the wall to the edge of the rafter. This is where the Sophet is hung.  It's typically between `18` and `24` inches.
 
-## Width of the Raftor
+## Width of the Rafter
 
 Kinda self explanatory, right?
