@@ -2,6 +2,11 @@
 name = "rafters"
 version = "0.1.0"
 edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["David Skyberg <davidskyberg@gmail.com>"]
+description = "A Rust cli for calculating roof rafters"
+repository = "https://github.com/dskyberg/rafters"
+readme = "README.md"
 
 [dependencies]
 anyhow = "1.0.97"
